@@ -1,0 +1,17 @@
+<app-header [pageTitle]="pageTitle" [pageIcon]="pageIcon"></app-header>
+
+<ion-content>
+    <ion-card>
+        <ion-card-header>
+          <ion-card-title color="danger">Te han matado!</ion-card-title>
+        </ion-card-header>
+    
+        <ion-card-content>
+         Hora de crear un nuevo personaje.
+        </ion-card-content>
+    
+        <ion-item class="ion-activated" [routerLink]="['/']" color="danger">
+          <ion-icon name="arrow-undo-outline"></ion-icon>
+        </ion-item>
+      </ion-card>
+</ion-content>

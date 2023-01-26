@@ -1,0 +1,27 @@
+<app-header [pageTitle]="pageTitle" [pageIcon]="pageIcon"></app-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let character of lCharacter" (click)="openCharacter(character)">
+      <ion-avatar slot="start" *ngIf="character.imageUrl; else CharacterSinImagen">
+        <img [src]="character.imageUrl" alt="{{character.nombre}}">
+      </ion-avatar>
+      <ng-template #CharacterSinImagen>
+        <ion-avatar slot="start" >
+          <ion-icon name="paw-outline"></ion-icon>
+        </ion-avatar>
+      </ng-template>
+      <ion-label>
+        {{character.nombre}}
+      </ion-label>
+    </ion-item>  
+  </ion-list>
+
+    <ion-fab horizontal="end" vertical="bottom">
+        <ion-fab-button (click)="addCharacter()">
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+
+</ion-content>

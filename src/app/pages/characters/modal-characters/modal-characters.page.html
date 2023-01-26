@@ -1,0 +1,48 @@
+<ion-content>
+  <div *ngIf="character">
+    <ion-list>
+    <ion-item>
+      <ion-label position="stacked">Nombre</ion-label>
+      <ion-input type="text" [(ngModel)]="character.nombre"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Clase</ion-label>
+      <ion-input type="text" [(ngModel)]="character.clase"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Edad</ion-label>
+      <ion-input type="number" [(ngModel)]="character.edad"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Raza</ion-label>
+      <ion-input type="text" [(ngModel)]="character.raza"></ion-input>
+    </ion-item>
+  </ion-list>
+
+    <div class="avatar">
+      <ion-avatar (click)="changeImage(character)">
+        <img *ngIf="character.imageUrl; else CharacterSinImagen" [src]="character.imageUrl" alt="">
+        <ng-template #CharacterSinImagen>
+          <div class="noAvatar">
+            <ion-icon name="paw-outline"></ion-icon>
+          </div>
+        </ng-template>
+        <div class="changePhoto">
+          <ion-icon name="camera"></ion-icon>
+        </div>
+      </ion-avatar>
+    </div>
+  </div>
+
+  <ion-button expand="block" color="primary" (click)="updateCharacter()">
+    <ion-icon name="save" slot="start">Update</ion-icon>
+  </ion-button>
+  <ion-button expand="block" color="danger" (click)="deleteCharacter()">
+    <ion-icon name="trash" slot="start">Delete</ion-icon>
+  </ion-button>
+
+</ion-content>
+
